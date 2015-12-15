@@ -94,8 +94,10 @@ var SantaController = {
 	var isCorrect = SantaModel.pack(answer);	
 	if(isCorrect){
 	    this.points++;
+		this.loadNextQuestion();
+	}else{
+		this.points--;
 	}
-	this.loadNextQuestion();
     },
     loadNextQuestion :  function(){
 	if(SantaModel.next()){
