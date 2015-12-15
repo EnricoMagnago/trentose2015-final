@@ -23,6 +23,8 @@ var SantaModel = {
      * If all requests have been processed (there is no current one), it returns null 
      */
     getCurrentRequest : function () {
+		if(this.index < 0 || this.index >= this.requests.length)
+			return null;
 	return this.requests[this.index];
     },
     getQuestion : function(){
@@ -37,7 +39,6 @@ var SantaModel = {
      */
     pack : function(item) {
 	var correct = this.getCurrentRequest().answer;
-	console.log("answer: " + item + " correct: " + correct);
 	return (correct == item);
     }
 };
